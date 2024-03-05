@@ -78,7 +78,8 @@ gameScene.create = function() {
 
     // Luodaan lintu jolla pelataan
     flappyBird = this.physics.add.sprite(150,300,'bird0')
-    flappyBird.setSize(75,75)
+    // vanha koko: 75,75
+    flappyBird.setSize(32,32)
     flappyBird.setCollideWorldBounds(true)
 
     // Luodaan kaksi putkea
@@ -153,7 +154,9 @@ gameScene.update = function() {
         // Jos on hävitty, pysäytetään palikat ja käännetään lintua
         } else {
             pipes[0].setVelocityX(0)
-            pipes[0].setVelocityY(0)
+            pipes[0].setVelocityY(0)            
+            pipes[1].setVelocityX(0)
+            pipes[1].setVelocityY(0)
             flappyBird.setVelocityX(0)
             if(flappyBird.angle != 90) {
                 flappyBird.angle += 10
