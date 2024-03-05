@@ -12,13 +12,13 @@ gameScene.init = function() {
 gameScene.preload = function() {
     // ladataan tarvittavat tiedostot
     // this.preload.audio('ääni', 'assets/esim-ääni.wav)
-    this.preload.image('bg','assets/background-day.png')
-    this.preload.image('pipeUp','assets/pipe-green.png')
-    this.preload.image('pipeDown','assets/pipe-green-down.png')
-    this.preload.image('platform','assets/base.png')
-    this.preload.image('bird0','assets/bluebird-midflap.png')
-    this.preload.image('bird1','assets/bluebird-downflap.png')
-    this.preload.image('bird2','assets/bluebird-upflap.png')
+    this.load.image('bg','assets/background-day.png')
+    this.load.image('pipeUp','assets/pipe-green.png')
+    this.load.image('pipeDown','assets/pipe-green-down.png')
+    this.load.image('platform','assets/base.png')
+    this.load.image('bird0','assets/bluebird-midflap.png')
+    this.load.image('bird1','assets/bluebird-downflap.png')
+    this.load.image('bird2','assets/bluebird-upflap.png')
 }
 
 gameScene.create = function() {
