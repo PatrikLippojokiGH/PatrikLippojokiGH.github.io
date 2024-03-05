@@ -84,7 +84,7 @@ gameScene.create = function() {
         // toinen putki ylösalaisin
         pipes[1].flipY = true
         pipes[i].depth = -1
-        pipes.setVelocityX(-300)
+        pipes[i].setVelocityX(-300)
         pipes[0].y = pos[Phaser.Math.Between(0,4)]
         pipes[0].x = 800
         pipes[1].y = pipes[0].y-650
