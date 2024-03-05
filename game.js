@@ -100,13 +100,13 @@ gameScene.create = function() {
 
 gameScene.hitPlatform = function(p1,p2) {
     if(p2===flappyBird) {
-        gameOver = true
+        gameover = true
     }
 }
 
 gameScene.hitPipe = function(p1,p2) {
     if(p2===flappyBird) {
-        gameOver = true
+        gameover = true
     }
 }
 
@@ -118,7 +118,7 @@ gameScene.update = function() {
         pipes[1].setVelocityX(0)
     } else {
 
-        if(gameOver===false) {
+        if(gameover===false) {
             bg.tilePositionX+=0.1
             platform.TilePositionX+=5
             pipes[1].y = pipes[0].y-650
