@@ -7,7 +7,7 @@ gameScene.init = function() {
     speedUp = -200
     start = false
     points = 0
-    pos = [300,350,400,450,500,550,600]
+    pos = [500,550,600,650]
 }
 
 gameScene.preload = function() {
@@ -76,11 +76,12 @@ gameScene.create = function() {
         repeat: -1
     })
 
+    // Luodaan lintu jolla pelataan
     flappyBird = this.physics.add.sprite(150,300,'bird0')
     flappyBird.setSize(75,75)
     flappyBird.setCollideWorldBounds(true)
 
-    // Luodaan kaksi putkea sisältävä joukko
+    // Luodaan kaksi putkea
     pipe = this.physics.add.group({
         key:'pipe',
         repeat:1
@@ -96,7 +97,7 @@ gameScene.create = function() {
         pipes[1].flipY = true
         pipes[i].depth = -1
         pipes[i].setVelocityX(-300)
-        pipes[0].y = pos[Phaser.Math.Between(0,6)]
+        pipes[0].y = pos[Phaser.Math.Between(0,4)]
         pipes[0].x = 800
         pipes[1].y = pipes[0].y-650
         pipes[1].x = pipes[0].x
@@ -109,17 +110,16 @@ gameScene.create = function() {
 
 }
 
-// Tässä olisi ollut mahdollisuus tehdä eri toimenpiteitä kuten ääniä eri osumille, mutta toistaiseksi putki ja maa osumista vain häviää
+// Osuma tapahtumat, näissä olisi voitu tehdä animaatioita ja ääniä lisäksi
 gameScene.hitPlatform = function(p1,p2) {
     if(p2===flappyBird) {
         gameover = true
     }
 }
 
-gameScene.hitPipe = function(p1,p2) {
-    if(p2===flappyBird) {
-        gameover = true
-    }
+// En ole varma miksei tässä pidäkkään olla p1 ja p2
+gameScene.hitPipe = function() {
+    gameover = true
 }
 
 // Pelin toiminta
@@ -137,15 +137,17 @@ gameScene.update = function() {
             // Liikutetaan palikoita vasemmalle
             bg.tilePositionX+=0.1
             platform.TilePositionX+=5
-            pipes[1].y = pipes[0].y-700
+            pipes[1].y = pipes[0].y-650
             pipes[1].x = pipes[0].x
 
             // Jos putket ovat liikkuneet riittävän paljon vasemmalle, luodaan uudet putket ja nopeutetaan peliä
             if(pipes[0].x <= -50) {
                 speedUp -= 25
                 pipes[0].x = 850
-                pipes[0].y = pos[Phaser.Math.Between(0,6)]
+                pipes[0].y = pos[Phaser.Math.Between(0,4)]
                 pipes[0].setVelocityX(speedUp)
+                points += 1
+                pipesPassed.setText('Points: '+points)
             }
 
         // Jos on hävitty, pysäytetään palikat ja käännetään lintua
