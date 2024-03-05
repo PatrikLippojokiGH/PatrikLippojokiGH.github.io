@@ -7,7 +7,7 @@ gameScene.init = function() {
     speedUp = -200
     start = false
     points = 0
-    pos = [500,550,600,650]
+    pos = [300,350,400,450]
 }
 
 gameScene.preload = function() {
