@@ -100,7 +100,7 @@ gameScene.create = function() {
         pipes[i].setVelocityX(-300)
         pipes[0].y = pos[Phaser.Math.Between(0,3)]
         pipes[0].x = 800
-        pipes[1].y = pipes[0].y-400
+        pipes[1].y = pipes[0].y-450
         pipes[1].x = pipes[0].x
     }
 
@@ -138,7 +138,7 @@ gameScene.update = function() {
             // Liikutetaan palikoita vasemmalle
             bg.tilePositionX+=0.1
             platform.TilePositionX+=5
-            pipes[1].y = pipes[0].y-400
+            pipes[1].y = pipes[0].y-450
             pipes[1].x = pipes[0].x
 
             // Jos putket ovat liikkuneet riittävän paljon vasemmalle, luodaan uudet putket ja nopeutetaan peliä
